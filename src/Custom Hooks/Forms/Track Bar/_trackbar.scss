@@ -1,0 +1,27 @@
+$mainTextColor:rgb(12, 12, 58);
+
+
+
+.trackbar{
+    text-align: center;
+    background-color: rgb(202, 197, 197);
+
+    .trackbar-inner{
+        margin-top: 1em;
+        color: $mainTextColor;
+        font-size: 1.4em;
+
+        .daily-calendar{
+            background-color: green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 2em;
+        }
+        
+        
+    }
+
+
+}

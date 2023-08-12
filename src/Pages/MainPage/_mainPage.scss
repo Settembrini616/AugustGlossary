@@ -1,6 +1,19 @@
 
 $borderColor:rgb(186, 210, 147);
+$backGround:rgb(14, 31, 42);
 
+
+@mixin borderGradient(){
+           color: #808080;
+            background-color: rgb(44, 6, 132);
+            background-image: linear-gradient(to right, rgba(14, 31, 42, 0), rgba(14, 31, 42, 1), rgba(14, 31, 42, 0));
+            border-bottom: 0.1em solid #ccc;
+            border-top: 0.1em solid #ccc;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 4rem;
+            mix-blend-mode: hard-light;
+}
 
 .main-container{
 
@@ -13,35 +26,69 @@ $borderColor:rgb(186, 210, 147);
 
     display:grid;
     grid-gap: 10px;
-    grid-template-rows: 30em 20em;
+    grid-template-rows: 15em 15em 20em;
 
     .inner{
-        border: 2px solid darken($borderColor, 40%);
+        border: 2px solid black;
         border-radius: .3em;
     }
 
     .hero-image{
-        grid-row: 1;
+        background-image: url('https://i.ibb.co/jzy6y3X/istockphoto-529179163-612x612.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 16em 0 10em;
+        grid-row: 1/span 2;
         grid-column: 1/span 5;
+
+
+        > h3{
+            color: #808080;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 4rem;
+            mix-blend-mode: hard-light;
+            line-height: 1.2em;
+            width: 85%;
+            margin-left: 4rem;
+            background-image: linear-gradient(45deg, transparent 5%,rgb(0,0,0) 50%),
+                              linear-gradient(-45deg, transparent 5%, rgb(0, 0, 0) 50%);
+            background-size: 50% 100%;
+            background-position: left, right;
+            background-repeat: no-repeat;
+            position: relative;
+        
+    
+            
+        }
+
+      
+
+        span{
+            position: relative;
+            left: .3em;
+        }
+
+
     }
     .login-form{
-        grid-row: 1;
+        grid-row: 1/ span 1;
         grid-column: 6/span 2;
     }
+    .bar{
+        grid-row: 2/span 1;
+        grid-column: 6/span 2;
+      
+
+    }
     .bottom-cards{
-        grid-row: 2;
+        grid-row: 3;
         grid-column: 1/span 6;
     }
     .track-form{
-        grid-row: 2;
+        grid-row: 3;
         grid-column: 7/ span 1;
     }
- 
-    
-
-    
-
-
-
 
 }
+

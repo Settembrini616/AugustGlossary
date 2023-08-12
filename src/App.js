@@ -19,3 +19,21 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ssh-keygen -t rsa -b 4096 -C "ваш_email@example.com"
+// git branch -m master main
+// git fetch origin
+// git branch -u origin/main main
+// git remote set-head origin -a

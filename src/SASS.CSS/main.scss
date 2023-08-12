@@ -1,1 +1,10 @@
-@import '../Pages/MainPage/mainPage'
+@import url('https://fonts.googleapis.com/css2?family=Borel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Handjet:wght@500&family=REM:ital,wght@1,200&display=swap');
+
+
+
+
+
+@import '../Pages/MainPage/mainPage';
+@import '../Custom Hooks/Forms/MainForm/_mainform';
+@import '../Custom Hooks/Forms/Track Bar/_trackbar'

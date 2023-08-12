@@ -1,0 +1,116 @@
+
+
+
+.form_wrap_inner{
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2rem 0px 0px 2rem;
+    gap: 20px;
+    height: 11em;
+    position: relative;
+
+
+    .name_form_piece:nth-of-type(2){
+        position: relative;
+        bottom: 2em;
+    }
+
+    .name_form_piece{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        flex: 1;
+
+        input{
+            width: 15rem;
+            padding: .2rem;
+            border: .5px solid rgb(119, 119, 149);
+            border-radius: .25em;
+            flex: 0 0 auto;
+            
+
+            &:focus{
+                outline: none;
+                border: 2.5px solid rgb(68, 68, 121);
+            }
+
+
+        }
+
+        
+
+        label{
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            line-height: .8em;
+            font-size: 1.2rem;
+        }
+    
+    }
+    
+    .submit_login_container{
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        top: 8.8em;
+        position: absolute;
+
+
+        .btn{
+            padding: .5em;
+            border: 1px solid rgb(126, 126, 155);
+            border-radius: .2em;
+            color: white;
+            cursor: pointer;
+            font-size: medium;
+            font-family: 'Handjet', cursive;
+            line-height: .8em;
+            box-shadow: 0px 0px 2.4px 0px black;
+            background-image: linear-gradient( #57b, #148);
+            transition: transform .1s ease-in;
+            
+
+
+            &:active{
+                transform: scale(0.96);
+            }
+        }
+    }
+    
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <div className='name_form_piece'>
+// <label htmlFor="firstName" className='input_label'> Username
+// <input className='input_name'
+// name="firstName"
+// id="firstName"
+// type="text"
+// value={name}
+// onChange={(e)=>setName(e.target.value)}
+// />
+// </label>
+
+// </div>

@@ -4,7 +4,7 @@ $mainTextColor:rgb(12, 12, 58);
 
 .trackbar{
     text-align: center;
-    
+
 
     .trackbar-inner{
         margin-top: 1em;
@@ -47,15 +47,76 @@ $mainTextColor:rgb(12, 12, 58);
             width: 100px;
             height: 100px;
             position: relative;
-            background-color: cornflowerblue;
             margin-bottom: -30px;
+            overflow: visible;
+            bottom: 1.5em;
+            right: .7em;
             
             .outer{
-                height: 100px;
-                width: 100px; 
+                height: 140px;
+                width: 140px; 
                 border-radius: 50%;
-                border: 1px solid red;
+                padding: 8px;
+                cursor: pointer;
+                border: .2px solid rgb(243, 243, 243);
+                box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                            -6px -6px 10px -1px  rgb(255, 255, 255, 0.7);
             }
+
+            .inside{
+                height: 120px;
+                width: 120px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: inherit;
+                box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+                            inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+                            -0.5px -0.5px 0px rgba(255,255,255,1),
+                            0.5px 0.5px 0px rgba(0,0,0,0.15),
+                            0px 12px 10px -10px rgba(0,0,0,0.05);
+
+
+
+                #count-number{
+                    font-weight: 600;
+                    color: rgb(27, 27, 116);
+                    font-size: larger;
+                    position: relative;
+                    left: .2em;
+                    user-select: none;
+                }
+
+           
+
+            }
+
+            .svg-1{
+                position: absolute;
+                top: 0;
+                left: -.1em;
+
+                .circ{
+                    fill: none;
+                    stroke: url(#GradientColor);
+                    stroke-width: 10px;
+                    stroke-dasharray: 472;
+                    stroke-dashoffset: 472;
+                    animation: anim 2s linear forwards;
+
+
+                    @keyframes anim {
+                        100%{
+                            stroke-dashoffset: 165;
+                        }
+                        
+                    }
+    
+                }
+            }
+
+            
 
         }
 

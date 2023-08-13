@@ -12,7 +12,10 @@ const Main = () => {
    <section className='inner hero-image'> <h3><span>Days in</span></h3></section>
    <aside className='inner login-form'>  <MainForm/> </aside>
    <aside className='inner track-form'>Find us on social media:</aside>
-   <aside className='inner bar'><Trackbar /></aside>
+   <aside className='inner bar'
+    style={{
+      backgroundColor:' rgb(253, 253, 253)'
+    }}><Trackbar /></aside>
    <div className='inner bottom-cards'>Bottom cards</div>
    
 

@@ -4,21 +4,94 @@ $mainTextColor:rgb(12, 12, 58);
 
 .trackbar{
     text-align: center;
-    background-color: rgb(202, 197, 197);
+    
 
     .trackbar-inner{
         margin-top: 1em;
         color: $mainTextColor;
         font-size: 1.4em;
+        
+
 
         .daily-calendar{
-            background-color: green;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 60px;
             padding: 2em;
+            position: relative;
+            width: 16em;
+            
+
+            input[type='date']{
+                position: relative;
+                bottom: 1.2em;
+                padding: .3em;
+                border-radius: .5em;
+                border: $inputBorder;
+                font-family: $fontButtonAndSuch;
+                font-size: medium;
+                
+
+                &:focus{
+                    @include focusInputChangeStyle();
+                }
+            
+            }
+         
+
+
+
+            
+        .progress-circle{
+            width: 100px;
+            height: 100px;
+            position: relative;
+            background-color: cornflowerblue;
+            margin-bottom: -30px;
+            
+            .outer{
+                height: 100px;
+                width: 100px; 
+                border-radius: 50%;
+                border: 1px solid red;
+            }
+
         }
+
+
+        }
+
+         
+    .submit-lookup{
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        position: relative;
+        left: 9.1em;
+        bottom: 2em;
+
+
+        .btn{
+            padding: .5em;
+            border: 1px solid rgb(126, 126, 155);
+            border-radius: .2em;
+            color: white;
+            cursor: pointer;
+            font-size: medium;
+            font-family: 'Handjet', cursive;
+            line-height: .8em;
+            box-shadow: 0px 0px 2.4px 0px black;
+            background-image: linear-gradient( #57b, #148);
+            transition: transform .1s ease-in;
+            
+
+
+            &:active{
+                transform: scale(0.96);
+            }
+        }
+    }
         
         
     }

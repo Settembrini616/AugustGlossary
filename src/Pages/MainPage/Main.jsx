@@ -9,7 +9,7 @@ const Main = () => {
     <div className='main-main'>
 
 <div className='main-container'>
-   <section className='inner hero-image'> <h3><span>Learn Coding</span></h3></section>
+   <section className='inner hero-image'> <h3><span>Days in</span></h3></section>
    <aside className='inner login-form'>  <MainForm/> </aside>
    <aside className='inner track-form'>Find us on social media:</aside>
    <aside className='inner bar'><Trackbar /></aside>

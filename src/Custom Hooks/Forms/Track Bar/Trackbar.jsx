@@ -7,10 +7,14 @@ const Trackbar = () => {
     return (
         <div className='trackbar'>
             <div className='trackbar-inner'>
-                <h3>Track your progress with us:</h3>
+                <h3>Track your progress:</h3>
                 <div className='daily-calendar'>
-                    <div className='progress-bar'
-                data-aria-label=''>
+                    <div className='progress-circle'>
+                    <div className='outer'>
+                        <div className="inside">
+
+                        </div>
+                     </div>
                     
                     </div>
                    
@@ -18,8 +22,8 @@ const Trackbar = () => {
 
                 </div>
                 <div className='submit-lookup'>
-                    <button>Submit</button>
-                    <button>History</button>
+                    <button className='btn'>Submit</button>
+                    <button className='btn'>History</button>
 
                 </div>
 

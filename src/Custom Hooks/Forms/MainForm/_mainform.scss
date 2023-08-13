@@ -1,5 +1,11 @@
+$inputBorder:.5px solid rgb(119, 119, 149);
+$focusBorder:2.5px solid rgb(68, 68, 121);
+$fontButtonAndSuch:'Handjet', cursive;
 
-
+@mixin focusInputChangeStyle(){
+    outline: none;
+    border: 2.5px solid rgb(68, 68, 121);
+}
 
 .form_wrap_inner{
 
@@ -26,14 +32,13 @@
         input{
             width: 15rem;
             padding: .2rem;
-            border: .5px solid rgb(119, 119, 149);
+            border: $inputBorder;
             border-radius: .25em;
             flex: 0 0 auto;
             
 
             &:focus{
-                outline: none;
-                border: 2.5px solid rgb(68, 68, 121);
+                @include focusInputChangeStyle();
             }
 
 

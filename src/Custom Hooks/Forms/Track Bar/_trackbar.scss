@@ -21,6 +21,7 @@ $mainTextColor:rgb(12, 12, 58);
             padding: 2em;
             position: relative;
             width: 16em;
+            user-select: none;
             
 
             input[type='date']{
@@ -94,8 +95,8 @@ $mainTextColor:rgb(12, 12, 58);
 
             .svg-1{
                 position: absolute;
-                top: 0;
-                left: -.1em;
+                top: -.09em;
+                left: -.9em;
 
                 .circ{
                     fill: none;
@@ -103,27 +104,11 @@ $mainTextColor:rgb(12, 12, 58);
                     stroke-width: 10px;
                     stroke-dasharray: 472;
                     stroke-dashoffset: 472;
-                    animation: anim 2s linear forwards;
-
-
-                    @keyframes anim {
-                        100%{
-                            stroke-dashoffset: 165;
-                        }
-                        
-                    }
-    
                 }
             }
-
-            
-
+        }
         }
 
-
-        }
-
-         
     .submit-lookup{
         display: flex;
         justify-content: flex-start;
@@ -131,7 +116,6 @@ $mainTextColor:rgb(12, 12, 58);
         position: relative;
         left: 9.1em;
         bottom: 2em;
-
 
         .btn{
             padding: .5em;
@@ -146,8 +130,6 @@ $mainTextColor:rgb(12, 12, 58);
             background-image: linear-gradient( #57b, #148);
             transition: transform .1s ease-in;
             
-
-
             &:active{
                 transform: scale(0.96);
             }
@@ -158,4 +140,8 @@ $mainTextColor:rgb(12, 12, 58);
     }
 
 
+}
+
+.bottom-cards{
+    background-color: #4d84cd;
 }

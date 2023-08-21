@@ -182,59 +182,9 @@ ul{
     }
 }
 
-.opener{
-    width: 100px;
-}
-
- .burg-open:hover + .arrow,
- .arrow:hover{
-    
-    transform: translateX(-20px);
-    transition: all 0.5s ease;
-    background-color: white;
-    padding: 5px 0px 5px 5px;
-    z-index: 3;
-    clip-path: polygon(9% 50%, 47% 10%, 
-    100% 0%, 100% 100%, 46% 90%);
-    font-size: 3.4vmin !important;
-
-}
 
 
-.burger-button-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding-bottom: 4px;
-   
-   
-}
-
-.burg-open{
-    position: absolute;
-    text-align: center;
-    z-index: 0;
-   
-}
-
-
-
- .arrow{
-    font-size: 3.4vmin !important;
-    margin-left: 90px;
-    max-width: 30px;
-    
-  }
-  
-
-.burger-button-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-   
-}
+ 
 
 .burger-button{
     margin-left: 8vmax;
@@ -251,4 +201,52 @@ ul{
     margin:5vh 0px -15px 1.65em;
     font-size: larger;
 }
+
+
+.burger-button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 3px;
+   
+   
+}
+
+.opener{
+    width: 100px;
+    
+}
+.burg-open:hover + .arrow,
+ .arrow:hover{
+    
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+    background-color: white;
+    padding: 5px 0px 5px 5px;
+    z-index: 3;
+    clip-path: polygon(9% 50%, 47% 10%, 
+    100% 0%, 100% 100%, 46% 90%);
+    font-size: 30px !important;
+
+}
+
+
+
+.burg-open{
+    position: absolute;
+    text-align: center;
+    z-index: 0;
+   
+}
+
+
+
+ .arrow{
+    font-size: 30px !important;
+    margin-left: 90px;
+    max-width: 30px;
+    
+  }
+  
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import MainForm from '../../Custom Hooks/Forms/MainForm/MainForm';
 import Trackbar from '../../Custom Hooks/Forms/Track Bar/Trackbar';
+import BottomMainSlider from '../../Custom Hooks/Forms/Bottom_Slider/BottomMainSlider';
 
 
 
@@ -16,7 +17,7 @@ const Main = () => {
     style={{
       backgroundColor:' rgb(253, 253, 253)'
     }}><Trackbar /></aside>
-   <div className='inner bottom-cards'>Bottom cards</div>
+   <div className='inner bottom-cards'><BottomMainSlider /></div>
    
 
 

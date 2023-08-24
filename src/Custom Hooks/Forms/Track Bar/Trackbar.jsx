@@ -10,7 +10,7 @@ const ACTIONS = {
 
 
 const initialState = {
-  inputValue: 0,
+  inputValue: 30,
   showQuestionModal: false
 }
 
@@ -18,7 +18,11 @@ const initialState = {
 const reducer = (state, action) =>{
   switch(action.type){
     case ACTIONS.PLUS:
-      return {...state, inputValue:state.inputValue + 1};
+      if(state.inputValue >= 100){
+          return {...state}
+        } else{
+          return {...state, inputValue:state.inputValue+1};
+        }
     case ACTIONS.MINUS:
       if(state.inputValue > 0){
         return {...state, inputValue:state.inputValue-1};

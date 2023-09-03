@@ -14,14 +14,47 @@ url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
   margin: 0;
 }
 
+html, body, #root {
+  height: 100% !important; 
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
+.super-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.super-main-inner{
+  margin-top: 5vh;
+}
+
+.footer-outside{
+  display: block;
+bottom: 0;
+left: 0;
+position: fixed;
+width: 100%;
+}
+
+.footer-none{
+  display: none;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
 
 .react-introduction{
-  height: 13em;
+  height: 8em;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
   -ms-user-select: none;     /* IE10+/Edge */
   user-select: none; 
+  position: relative;
+  z-index: 0;
   
 }
 

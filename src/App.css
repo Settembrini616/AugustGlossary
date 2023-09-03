@@ -18,19 +18,24 @@ url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 .react-introduction{
   height: 13em;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none; 
   
 }
 
 .header-top{
   padding-top: 1em;
-  margin-top: 5vh;
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60%;
+  height: 7.8em;
   width: 100%;
   overflow: visible;
   border-bottom: solid hsl(210, 57%, 37%);
+ 
 }
 
 .react-logo{

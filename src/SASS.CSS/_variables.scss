@@ -1,0 +1,8 @@
+$frontPageColor:rgb(6, 24, 83);
+
+@mixin frontPageFont($fontSize, $lineHeight){
+
+    color:$frontPageColor;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+}

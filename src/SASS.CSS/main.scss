@@ -2,9 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Borel&family=Handjet:wght@500&family=REM:ital,wght@1,200&display=swap');
 
 
+
+
+@import '../SASS.CSS/variables';
 @import '../Pages/MainPage/mainPage';
 @import '../Custom Hooks/Forms/MainForm/_mainform';
 @import '../Custom Hooks/Forms/Track Bar/_trackbar';
 @import '../Custom Hooks/Forms/Bottom_Slider/_bottomMainSlider';
+@import '../Pages/MainPage/SocialMedia/socialmedia';
 
 

@@ -86,10 +86,12 @@ $backGround:rgb(14, 31, 42);
     .bottom-cards{
         grid-row: 3;
         grid-column: 1/span 6;
+        width: 935px !important;
     }
     .track-form{
         grid-row: 3;
         grid-column: 7/ span 1;
+        width: 180px !important;
     }
 
 }

@@ -4,14 +4,12 @@ const SliderCard = ({title, ICON, descr}) => {
 
     return (
 
-        <div className='main-card-wrap'>
-            <div className='picture-block-main'>
-                <img src={ICON} alt="icon here" />
-
-            </div>
+        <div className='main-card-wrap'>      
+            
             <div className='text-block-main'>
-
-                <h5>{title}</h5>
+            <h5>{title}</h5>
+            <img src={ICON} alt="icon here" />
+             
                 <p>{descr}</p>
 
             </div>

@@ -1,34 +1,110 @@
 .bottom-cards-wrap{
 
+    display: flex;            
+    overflow: hidden;        
+    width: 100%;   
+    position: relative; 
+    justify-content: center;
+
+    .bottom-inside{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .main-slide{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            transition: transform 0.5s ease;
+            position: relative;
+            margin: auto 3em 3em;
+
+        
+    }
+
+
 
     .main-card-wrap{
-        margin: 20px;
+        margin: 14px;
         border: 2px solid black;
-        width: 20em;
-        height: 17em;
+        width: 250px;
+        height: 18em;
         border-radius: .3em;
-        display: flex;
-
-        .picture-block-main{
-            border: 2px solid red;
-            width:60em;
-        }
+        overflow: scroll;
+        overflow: hidden;
+  
 
 
         .text-block-main{
             font-size: 10px;
             padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap:20px;
+
+            h5{
+                text-align: center;
+                margin: 15px;
+                @include frontPageFont(23px, 20px);
+            }
+          
+
+            img{
+                border: 2px solid black;
+                float: left;
+                width: 80px;
+                height: 80px;
+                margin-right: 10px;
+            }
 
         }
-
-
-
-
-
-
     }
+
+}
+
+
+.arrows-slides{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img{
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none;    /* Firefox */
+        -ms-user-select: none;     /* IE10+/Edge */
+        user-select: none; 
+    }
+
+    img:nth-child(1){
+    position: relative;
+    left: .5em;    
+    transform: rotate(-90deg);
+    cursor: pointer;
+    bottom: 2em;
+    }
+    
+    img:nth-child(2){
+        position: relative;
+        right: .5em;    
+        transform: rotate(90deg);
+        cursor: pointer;
+        bottom: 2em;
+        }
+  
+}
+.turn-arrow{
+    transform: rotate(90deg) !important;
+    transition: all 0.7s ease !important;
+
+}
+.bring-arrow-back{
+    transform: rotate(-90deg) !important;
+    transition: all 0.7s ease !important;
+}
+
+    
 
 }

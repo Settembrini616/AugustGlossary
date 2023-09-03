@@ -188,12 +188,16 @@ ul{
 
 .burger-button{
     margin-left: 8vmax;
-    margin-top: 2.5em;
+    margin-top: 30px;
     cursor: pointer;
-    padding-right: -20px;
     flex:3;
     text-align: center;
     max-width: 100px;
+    height: 50px !important;
+    display: flex;
+     align-items: center; 
+     justify-content: center;
+    
 }
 
 .--link-module{
@@ -208,14 +212,15 @@ ul{
     justify-content: center;
     align-items: center;
     position: relative;
-    padding-bottom: 3px;
-   
+    padding: 0;
    
 }
 
 .opener{
     width: 100px;
-    
+    padding: 0;
+  
+
 }
 .burg-open:hover + .arrow,
  .arrow:hover{
@@ -237,10 +242,20 @@ ul{
     position: absolute;
     text-align: center;
     z-index: 0;
+    padding: 0;
+
+
    
 }
 
-
+.default-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    
+}
 
  .arrow{
     font-size: 30px !important;
@@ -249,4 +264,3 @@ ul{
     
   }
   
-

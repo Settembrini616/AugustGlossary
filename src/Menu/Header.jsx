@@ -44,13 +44,12 @@ const Header = () => {
                   >
                    
                     {menuHover 
-                    ? <div className='burger-button-container'><span class="material-symbols-outlined opener burg-open"
-                    >
+                    ? <div className='burger-button-container'><span class="material-symbols-outlined opener burg-open">
                     menu
                     </span><span className="material-symbols-outlined opener arrow">
                     arrow_back_ios
                     </span></div>
-                    : <div className="material-symbols-outlined opener"
+                    : <div className="material-symbols-outlined opener default-box"
             
                     >
                     menu

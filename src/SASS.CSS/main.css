@@ -404,4 +404,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.footer {
+  background-color: rgb(40, 75, 149);
+  display: block;
+}
+.footer .footer-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */

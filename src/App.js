@@ -8,24 +8,23 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-const [showFooter, setShowFooter] = useState(false);
+  const [showFooter, setShowFooter] = useState(false);
+  
+  useEffect(() => {
+    const checkScroll = () => {
+      if(window.innerHeight + window.scrollY >= document.body.scrollHeight){
+        setShowFooter(true)
+      }else{
+        setShowFooter(false)
+      }
+    };
 
-useEffect(()=>{
-  const checkScroll= ()=>{
+    window.addEventListener('scroll', checkScroll);
 
-    if(window.innerHeight + window.scrollY >= document.body.offsetHeight){
-      setShowFooter(true);
-    }else{
-      setShowFooter(false);
-    }
-  }
-
-  window.addEventListener('scroll', checkScroll);
-
-  return ()=>{
-    window.removeEventListener('scroll', checkScroll);
-  }
-})
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+    };
+  }, []);
 
   return (
     <div className='app-main'>
@@ -47,10 +46,6 @@ useEffect(()=>{
 }
 
 export default App;
-
-
-
-
 
 
 

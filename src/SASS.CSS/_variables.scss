@@ -1,8 +1,18 @@
 $frontPageColor:rgb(6, 24, 83);
+$footerColor:white;
 
 @mixin frontPageFont($fontSize, $lineHeight){
 
     color:$frontPageColor;
     font-size: $fontSize;
     line-height: $lineHeight;
+}
+
+@mixin footerFont($fontSize, $lineHeight, $fontWeight){
+
+    color:$footerColor;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    font-weight: $fontWeight;
+
 }

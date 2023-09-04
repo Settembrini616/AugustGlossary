@@ -1,15 +1,40 @@
 .footer{
     background-color: rgb(40, 75, 149);
+    height: 2.5em;
     display: block;;
 
     .footer-wrap{
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
 
-        section{
+        section:nth-child(1){
+            position: relative;
+            left: 3em;
+            top: 8px;
+            display: flex;
+            justify-content: center;
+            gap: 2px;
+        
+        div{
+            position: relative;
+            top: 1px;
+            cursor: pointer;
+        }
+            
 
+        h6{
+            margin-right: 8px;
+            @include footerFont(20px, 20px, 400);
+        }
 
+        }
+
+        section:nth-child(2){
+            @include footerFont(20px, 20px, 400);
+            position: relative;
+            right: 3em;
+            top: 7px;
         }
 
     }

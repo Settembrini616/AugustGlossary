@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const SliderCard = ({title, ICON, descr}) => {
+const SliderCard = ({title, ICON, children}) => {
 
     return (
 
@@ -10,9 +10,10 @@ const SliderCard = ({title, ICON, descr}) => {
                
             <h5>{title}</h5>
             <img src={ICON} alt="icon here" />
-             
-                <p>{descr}</p>
 
+
+            {children}
+           
             </div>
 
             

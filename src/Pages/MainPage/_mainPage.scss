@@ -30,8 +30,9 @@ $backGround:rgb(14, 31, 42);
     grid-template-rows: 15em 15em 20em;
 
     .inner{
-        border: 2px solid black;
+        box-shadow: 0px 0px 5px black;
         border-radius: .3em;
+        background-color:rgb(253, 253, 253);
     }
 
     .hero-image{

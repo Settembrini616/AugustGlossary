@@ -19,7 +19,7 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            transition: transform 0.5s ease;
+            // transition: transform 0.5s ease;
             position: relative;
             margin: auto 3em 3em;
             z-index: 1;
@@ -29,14 +29,15 @@
 
     .main-card-wrap{
         margin: 14px;
-        border: 2px solid black;
+        border: 1px solid rgb(11, 6, 73);
+        box-shadow: 0px 0px 3px rgb(6, 53, 111);
         width: 250px;
         height: 18em;
         border-radius: .3em;
        
         
         .text-block-main{
-            padding: 10px;
+            padding: 7px;
             height: 100%;
             overflow-y: auto;
 
@@ -72,22 +73,33 @@
             h5{
                 text-align: center;
                 margin: 15px;
+                height: 40px !important;
                 @include frontPageFont(23px, 20px);
             }
 
             p{
                 @include frontPageFont(15px, 20px);
+                text-indent: 1em;
+                line-height: 23px;
+                text-align:justify;
+                word-wrap: break-word;
+                hyphens: auto;
+                white-space:pre-line;
+
+
         
-            
             }
           
 
             img{
-                border: 2px solid black;
+                box-shadow: 0px 0px 3px rgb(4, 4, 54);
                 float: left;
                 width: 80px;
                 height: 80px;
                 margin-right: 10px;
+                border-radius: 5px;
+                position: relative;
+                left: 2px;
             }
 
         }

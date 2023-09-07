@@ -6,6 +6,7 @@ $footerColor:white;
     color:$frontPageColor;
     font-size: $fontSize;
     line-height: $lineHeight;
+    font-weight: 600;
 }
 
 @mixin footerFont($fontSize, $lineHeight, $fontWeight){

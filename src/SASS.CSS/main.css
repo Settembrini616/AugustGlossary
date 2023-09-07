@@ -129,6 +129,7 @@
   color: rgb(6, 24, 83);
   font-size: 23px;
   line-height: 38px;
+  font-weight: 600;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -309,6 +310,7 @@
   transition: transform 0.5s ease;
   position: relative;
   margin: auto 3em 3em;
+  z-index: 1;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap {
   margin: 14px;
@@ -316,12 +318,31 @@
   width: 250px;
   height: 18em;
   border-radius: 0.3em;
-  overflow: scroll;
-  overflow: hidden;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main {
-  font-size: 10px;
   padding: 10px;
+  height: 100%;
+  overflow-y: auto;
+}
+.bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main::-webkit-scrollbar {
+  background: rgb(183, 183, 219);
+  width: 13px;
+  cursor: pointer;
+}
+.bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main::-webkit-scrollbar-thumb {
+  background-color: #09024d;
+  border-radius: 10px;
+}
+.bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main::-webkit-scrollbar-thumb:hover {
+  background-color: #33289b;
+}
+.bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main::-webkit-scrollbar-button:start:decrement {
+  background: url("https://img.icons8.com/fluency/18/collapse-arrow.png") no-repeat center center;
+  height: 18px;
+}
+.bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main::-webkit-scrollbar-button:end:increment {
+  background: url("https://img.icons8.com/fluency/18/expand-arrow.png") no-repeat center center;
+  height: 18px;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main h5 {
   text-align: center;
@@ -329,6 +350,13 @@
   color: rgb(6, 24, 83);
   font-size: 23px;
   line-height: 20px;
+  font-weight: 600;
+}
+.bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main p {
+  color: rgb(6, 24, 83);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main img {
   border: 2px solid black;
@@ -339,16 +367,19 @@
 }
 .bottom-cards-wrap .arrows-slides {
   position: absolute;
-  width: 100%;
   height: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  pointer-events: none;
+  z-index: 100;
 }
 .bottom-cards-wrap .arrows-slides img {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */ /* IE10+/Edge */
   user-select: none;
+  pointer-events: auto;
 }
 .bottom-cards-wrap .arrows-slides img:nth-child(1) {
   position: relative;
@@ -386,6 +417,7 @@
   color: rgb(6, 24, 83);
   font-size: 23px;
   line-height: 20px;
+  font-weight: 600;
   position: relative;
   top: 1.6em;
 }
@@ -408,10 +440,40 @@
 
 .footer {
   background-color: rgb(40, 75, 149);
+  height: 2.5em;
   display: block;
 }
 .footer .footer-wrap {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+}
+.footer .footer-wrap section:nth-child(1) {
+  position: relative;
+  left: 3em;
+  top: 8px;
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+.footer .footer-wrap section:nth-child(1) div {
+  position: relative;
+  top: 1px;
+  cursor: pointer;
+}
+.footer .footer-wrap section:nth-child(1) h6 {
+  margin-right: 8px;
+  color: white;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.footer .footer-wrap section:nth-child(2) {
+  color: white;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+  position: relative;
+  right: 3em;
+  top: 7px;
 }/*# sourceMappingURL=main.css.map */

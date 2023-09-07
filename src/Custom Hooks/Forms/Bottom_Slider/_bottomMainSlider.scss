@@ -12,6 +12,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        
 
 
         .main-slide{
@@ -21,10 +22,9 @@
             transition: transform 0.5s ease;
             position: relative;
             margin: auto 3em 3em;
-
-        
+            z-index: 1;
+      
     }
-
 
 
     .main-card-wrap{
@@ -33,19 +33,52 @@
         width: 250px;
         height: 18em;
         border-radius: .3em;
-        overflow: scroll;
-        overflow: hidden;
-  
-
-
+       
+        
         .text-block-main{
-            font-size: 10px;
             padding: 10px;
+            height: 100%;
+            overflow-y: auto;
+
+            &::-webkit-scrollbar{
+                background: rgb(183, 183, 219);
+                width: 13px;
+                cursor: pointer;
+                
+            }
+
+            &::-webkit-scrollbar-thumb{
+                background-color: #09024d;;
+                border-radius: 10px;
+              
+            }
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #33289b; 
+                // цвет ползунка при наведении
+            }
+
+        
+            &::-webkit-scrollbar-button:start:decrement{
+                background: url('https://img.icons8.com/fluency/18/collapse-arrow.png') no-repeat center center;
+                height: 18px;
+            }
+
+            &::-webkit-scrollbar-button:end:increment{
+                background: url('https://img.icons8.com/fluency/18/expand-arrow.png') no-repeat center center;
+                height: 18px;
+            }
+
 
             h5{
                 text-align: center;
                 margin: 15px;
                 @include frontPageFont(23px, 20px);
+            }
+
+            p{
+                @include frontPageFont(15px, 20px);
+        
+            
             }
           
 
@@ -65,17 +98,20 @@
 
 .arrows-slides{
     position: absolute;
-    width: 100%;
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    pointer-events: none;
+    z-index: 100;
 
     img{
         -webkit-user-select: none; /* Safari */
         -moz-user-select: none;    /* Firefox */
         -ms-user-select: none;     /* IE10+/Edge */
         user-select: none; 
+        pointer-events: auto;
     }
 
     img:nth-child(1){

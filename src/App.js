@@ -8,7 +8,15 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
+  const [data, setData] = useState(null);
   const [showFooter, setShowFooter] = useState(false);
+
+  useEffect(()=>{
+    fetch('/api')
+    .then(response=>response.json())
+    .then(response => setData(response.message))
+  },[]);
+
   
   useEffect(() => {
     const checkScroll = () => {
@@ -29,6 +37,11 @@ function App() {
   return (
     <div className='app-main'>
       <Header />
+      <div 
+      style={{display:
+      'block'}}>
+        {!data ? 'loading...' : data }
+      </div>
       <div className='super-main'>
         <div className='super-main-inner'>
         <Routing />
@@ -46,7 +59,6 @@ function App() {
 }
 
 export default App;
-
 
 
 

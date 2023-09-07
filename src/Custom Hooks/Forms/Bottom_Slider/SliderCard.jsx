@@ -7,6 +7,7 @@ const SliderCard = ({title, ICON, descr}) => {
         <div className='main-card-wrap'>      
             
             <div className='text-block-main'>
+               
             <h5>{title}</h5>
             <img src={ICON} alt="icon here" />
              

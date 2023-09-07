@@ -25,10 +25,11 @@ html, body, #root {
   justify-content: center;
   align-items: center;
   min-height: 80vh;
+ 
 }
 
 .super-main-inner{
-  margin-top: 5vh;
+  margin-top: 1vh;
 }
 
 .footer-outside{
@@ -78,7 +79,8 @@ html, body, #root {
 }
 
 .react-introduction{
-  height: 8em;
+ 
+  height: 9em;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none;    /* Firefox */
   -ms-user-select: none;     /* IE10+/Edge */
@@ -90,7 +92,7 @@ html, body, #root {
 
 .header-top{
   padding-top: 1em;
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;

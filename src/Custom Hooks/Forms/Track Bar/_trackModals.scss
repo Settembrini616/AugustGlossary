@@ -1,0 +1,28 @@
+.open-modal{
+position: absolute;
+height: 100vh;
+width: 100vh;
+background-color: red;
+z-index: 15;
+box-sizing: border-box;
+
+
+ .main-track-window{
+    display: block;
+    width: 1024px;
+    margin: auto auto;
+    background-color: rgb(50, 91, 49);
+    position: relative;
+    z-index: 30;
+ }
+
+  
+
+}
+
+
+
+
+.close-modal{
+    display: none;
+}

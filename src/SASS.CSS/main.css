@@ -12,8 +12,9 @@
   grid-template-rows: 15em 15em 20em;
 }
 .main-container .inner {
-  border: 2px solid black;
+  box-shadow: 0px 0px 5px black;
   border-radius: 0.3em;
+  background-color: rgb(253, 253, 253);
 }
 .main-container .hero-image {
   background-image: url("https://i.ibb.co/jzy6y3X/istockphoto-529179163-612x612.jpg");
@@ -307,20 +308,20 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  transition: transform 0.5s ease;
   position: relative;
   margin: auto 3em 3em;
   z-index: 1;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap {
   margin: 14px;
-  border: 2px solid black;
+  border: 1px solid rgb(11, 6, 73);
+  box-shadow: 0px 0px 3px rgb(6, 53, 111);
   width: 250px;
   height: 18em;
   border-radius: 0.3em;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main {
-  padding: 10px;
+  padding: 7px;
   height: 100%;
   overflow-y: auto;
 }
@@ -347,6 +348,7 @@
 .bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main h5 {
   text-align: center;
   margin: 15px;
+  height: 40px !important;
   color: rgb(6, 24, 83);
   font-size: 23px;
   line-height: 20px;
@@ -357,13 +359,23 @@
   font-size: 15px;
   line-height: 20px;
   font-weight: 600;
+  text-indent: 1em;
+  line-height: 23px;
+  text-align: justify;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  white-space: pre-line;
 }
 .bottom-cards-wrap .bottom-inside .main-card-wrap .text-block-main img {
-  border: 2px solid black;
+  box-shadow: 0px 0px 3px rgb(4, 4, 54);
   float: left;
   width: 80px;
   height: 80px;
   margin-right: 10px;
+  border-radius: 5px;
+  position: relative;
+  left: 2px;
 }
 .bottom-cards-wrap .arrows-slides {
   position: absolute;
@@ -373,7 +385,7 @@
   justify-content: space-between;
   align-items: center;
   pointer-events: none;
-  z-index: 100;
+  z-index: 5;
 }
 .bottom-cards-wrap .arrows-slides img {
   -webkit-user-select: none; /* Safari */
@@ -436,6 +448,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.open-modal {
+  position: absolute;
+  height: 100vh;
+  width: 100vh;
+  background-color: red;
+  z-index: 15;
+  box-sizing: border-box;
+}
+.open-modal .main-track-window {
+  display: block;
+  width: 1024px;
+  margin: auto auto;
+  background-color: rgb(50, 91, 49);
+  position: relative;
+  z-index: 30;
+}
+
+.close-modal {
+  display: none;
 }
 
 .footer {

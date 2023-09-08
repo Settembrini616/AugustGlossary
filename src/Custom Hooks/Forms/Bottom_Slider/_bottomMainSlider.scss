@@ -19,7 +19,6 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            // transition: transform 0.5s ease;
             position: relative;
             margin: auto 3em 3em;
             z-index: 1;
@@ -116,7 +115,7 @@
     justify-content: space-between;
     align-items: center;
     pointer-events: none;
-    z-index: 100;
+    z-index: 5;
 
     img{
         -webkit-user-select: none; /* Safari */

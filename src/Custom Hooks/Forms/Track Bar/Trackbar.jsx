@@ -1,4 +1,5 @@
 import React, { useReducer, useState} from 'react';
+import TrackBarModal from './TrackBarModal';
 
 const ACTIONS = {
   PLUS: 'PLUS',
@@ -42,7 +43,17 @@ const reducer = (state, action) =>{
 
 const Trackbar = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState);
+  
+  const [trackWindow, setTrackWindow] = useState(false);
+
+
+
+  const handleHistoryOpen = (e) =>{
+    e.preventDefault();
+
+    setTrackWindow(prev => !prev)
+  }
 
 
   const year = currentDate.getFullYear();
@@ -112,10 +123,23 @@ const Trackbar = () => {
           />
         </div>
         <div className='submit-lookup'>
-          <button className='btn'>Submit</button>
-          <button className='btn'>History</button>
+
+          <button className='btn'
+          type='submit'>Submit</button>
+
+
+
+          <button className='btn'
+                  onClick={handleHistoryOpen} >
+
+            History</button>
+
         </div>
       </div>
+      
+      {trackWindow && <TrackBarModal>
+                      </TrackBarModal>}
+
 
       <div className='question-modal'
       style={{

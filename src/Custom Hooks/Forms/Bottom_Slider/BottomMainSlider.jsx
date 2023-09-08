@@ -99,7 +99,7 @@ const BottomMainSlider = () => {
         style={{transform:`translate(-${activeIndex *100}%)`,
                 transition:`transform 0.7s ease`}}>
 
-        <div className='main-slide firsty'>
+        <div className='main-slide'>
             {cardsArray.slice(0,3).map(card =>(
             <SliderCard 
             
@@ -115,7 +115,7 @@ const BottomMainSlider = () => {
           ))}
             </div>
 
-            <div className='main-slide firsty'>
+            <div className='main-slide'>
             {cardsArray.slice(3).map(card =>(
             <SliderCard 
             

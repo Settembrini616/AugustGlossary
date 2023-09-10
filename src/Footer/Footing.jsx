@@ -3,7 +3,7 @@ import Star from './Star';
 
 
 
-export default function Footing({children}){
+ function Footing({children}){
 
     const [selectedStars, setSelectedStars] = React.useState(0);
     const createArray = length => Array(length).fill(null);
@@ -34,3 +34,5 @@ export default function Footing({children}){
 
 
 }
+
+export default Footing;

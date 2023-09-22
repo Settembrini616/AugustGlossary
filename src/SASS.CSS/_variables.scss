@@ -17,3 +17,67 @@ $footerColor:white;
     font-weight: $fontWeight;
 
 }
+
+
+@mixin crossClose($crossFont, $crossFontWeight, $crossLineHeight){
+    position: absolute;
+    font-size: $crossFont;
+    font-weight: 600;
+    line-height:$crossLineHeight;
+    padding: 5px 0px 14px;
+    right: 1%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover{
+        transform: rotate(180deg);
+        transition: transform 1s ease-in-out;
+    }
+}
+
+@mixin appearAnimationPop(){
+    animation: pop-up 300ms linear;
+    animation-fill-mode: backwards;
+
+    @keyframes pop-up {
+        0%{
+            transform: scale(0.5);
+            opacity: 0.5;
+        }
+
+        // 56%{
+        //     transform: scale(0.9);
+        //     opacity: 0.9;
+        // }
+
+        100%{
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+
+
+@mixin appearAnimationPopRemove(){
+    animation: pop-upnone 300ms linear;
+    animation-fill-mode: backwards;
+
+    @keyframes pop-upnone {
+        0%{
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        // 56%{
+        //     transform: scale(0.9);
+        //     opacity: 0.9;
+        // }
+
+        100%{
+            transform: scale(0.5);
+            opacity: 0.5;
+        }
+    }
+}

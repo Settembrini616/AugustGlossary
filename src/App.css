@@ -20,6 +20,10 @@ html, body, #root {
   padding: 0 !important;
 }
 
+.app-main{
+margin-top: -10px !important;
+}
+
 .super-main{
   display: flex;
   justify-content: center;
@@ -29,7 +33,7 @@ html, body, #root {
 }
 
 .super-main-inner{
-  margin-top: 1vh;
+  margin-top: 4vh;
 }
 
 .footer-outside{
@@ -55,6 +59,7 @@ html, body, #root {
   opacity: 1;
   animation: fadeOut .4s ease-in-out;
   animation-fill-mode: forwards;
+  pointer-events: none;
   
 }
 

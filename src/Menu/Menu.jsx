@@ -35,6 +35,14 @@ const Menu = ({header, items, active, setActive}) => {
         window.addEventListener('keydown', (event)=>{
             if(event.code === 'Escape'){
                 closeMe();
+
+
+        return window.removeEventListener('keydown', (event)=>{
+            
+            if(event.code === 'Escape'){
+                closeMe();
+            }
+        })
             }
 
 })

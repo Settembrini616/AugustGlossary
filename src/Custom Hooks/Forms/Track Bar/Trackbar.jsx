@@ -1,5 +1,6 @@
-import React, { useReducer, useState} from 'react';
-import TrackBarModal from './TrackBarModal';
+import React, { useReducer, useState, useContext} from 'react';
+import AppMainContext from '../../AppMainContext';
+
 
 const ACTIONS = {
   PLUS: 'PLUS',
@@ -42,19 +43,18 @@ const reducer = (state, action) =>{
 
 
 const Trackbar = () => {
+
   const [currentDate, setCurrentDate] = useState(new Date());
   const [state, dispatch] = useReducer(reducer, initialState);
-  
-  const [trackWindow, setTrackWindow] = useState(false);
 
 
+  const {trackWindowState, setTrackWindowState } = useContext(AppMainContext);
 
-  const handleHistoryOpen = (e) =>{
-    e.preventDefault();
 
-    setTrackWindow(prev => !prev)
+  const handleHistoryOpen = (e) => {
+   if(e) e.preventDefault();
+    setTrackWindowState(true); // Это изменит состояние trackWindowState на true, открывая модальное окно
   }
-
 
   const year = currentDate.getFullYear();
   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -127,8 +127,6 @@ const Trackbar = () => {
           <button className='btn'
           type='submit'>Submit</button>
 
-
-
           <button className='btn'
                   onClick={handleHistoryOpen} >
 
@@ -136,17 +134,13 @@ const Trackbar = () => {
 
         </div>
       </div>
-      
-      {trackWindow && <TrackBarModal>
-                      </TrackBarModal>}
-
-
+    
       <div className='question-modal'
       style={{
         display:state.showQuestionModal ? 'block' : 'none' 
       }}
       >
-          HELLO PENIS
+       Hi!
       </div>
 
     </div>

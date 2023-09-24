@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from 'react';
 import AppMainContext from '../../AppMainContext';
-
+import { Cross } from '../../../FontAwesome/FontAwesome';
 
 
 
@@ -39,7 +39,8 @@ useEffect(()=>{
     return () => {
         document.body.style.overflow = 'auto'
     }
-})
+});
+
 
  useEffect(()=>{
 
@@ -66,7 +67,11 @@ useEffect(()=>{
 
                     <div className="top-wrapper">
                     <h4>Your success history</h4>   
-                    <span className='cross-close' onClick={closeTheWindowTrackBar}> &times;</span> 
+                    <Cross
+                    className='crossy'
+                    onClick={closeTheWindowTrackBar}
+
+                    />
                     </div>
 
                     <aside> 

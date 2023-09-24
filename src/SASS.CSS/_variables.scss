@@ -1,6 +1,9 @@
 $frontPageColor:rgb(6, 24, 83);
 $footerColor:white;
 
+
+
+
 @mixin frontPageFont($fontSize, $lineHeight){
 
     color:$frontPageColor;
@@ -11,6 +14,7 @@ $footerColor:white;
 
 @mixin footerFont($fontSize, $lineHeight, $fontWeight){
 
+
     color:$footerColor;
     font-size: $fontSize;
     line-height: $lineHeight;
@@ -19,20 +23,20 @@ $footerColor:white;
 }
 
 
-@mixin crossClose($crossFont, $crossFontWeight, $crossLineHeight){
+@mixin crossClose(){
     position: absolute;
-    font-size: $crossFont;
     font-weight: 600;
-    line-height:$crossLineHeight;
-    padding: 5px 0px 14px;
+    line-height:20px;
+    padding: 0px !important;
     right: 1%;
     display: flex;
     align-items: center;
     cursor: pointer;
 
     &:hover{
-        transform: rotate(180deg);
-        transition: transform 1s ease-in-out;
+        bottom: 1px;
+        transform: rotate(360deg);
+        transition: transform 1.2s ease-in-out;
     }
 }
 
@@ -46,18 +50,12 @@ $footerColor:white;
             opacity: 0.5;
         }
 
-        // 56%{
-        //     transform: scale(0.9);
-        //     opacity: 0.9;
-        // }
-
         100%{
             transform: scale(1);
             opacity: 1;
         }
     }
 }
-
 
 
 @mixin appearAnimationPopRemove(){
@@ -70,14 +68,144 @@ $footerColor:white;
             opacity: 1;
         }
 
-        // 56%{
-        //     transform: scale(0.9);
-        //     opacity: 0.9;
-        // }
-
         100%{
             transform: scale(0.5);
             opacity: 0.5;
         }
     }
+}
+
+
+$breakpoints: (
+  "xs": "max-width: 575.98px",
+  "sm": "min-width: 576px",
+  "md": "min-width: 768px",
+  "lg": "min-width: 992px",
+  "xl": "min-width: 1200px"
+);
+
+@mixin breakpoint($name) {
+  $breakpoint-value: map-get($breakpoints, $name);
+
+  @if $breakpoint-value {
+    @media (#{$breakpoint-value}) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$name}.";
+  }
+}
+
+@mixin text-sizes($text-sizes...) {
+  @if length($text-sizes) != length($breakpoints) {
+    @warn "The number of font sizes provided does not match the number of breakpoints!";
+  }
+
+  $index: 1; // инициализируем индекс перед началом цикла
+  @each $breakpoint, $breakpoint-value in $breakpoints {
+    $text-size: nth($text-sizes, $index);
+    @debug "Breakpoint: #{$breakpoint}, Index: #{$index}, Text Size: #{$text-size}"; 
+    
+    @include breakpoint($breakpoint) {
+      font-size: $text-size !important;
+    }
+
+    $index: $index + 1; // увеличиваем индекс на 1 после каждой итерации
+  }
+}
+
+
+@mixin crossSize(){
+  @include text-sizes(18px, 20px, 22px, 24px, 26px)
+}
+
+
+@mixin modalMainHeading(){
+  @include text-sizes(22px, 24px, 26px, 28px, 35px);
+}
+
+@mixin modalRegularHeading(){
+  @include text-sizes(18px, 20px, 22px, 24px, 26px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @include breakpoint("sx"){
+//   font-size: 20px;
+// }
+
+// @include breakpoint("sm"){
+//   font-size: 22px;
+// }
+
+// @include breakpoint("md"){
+//   font-size: 24px;
+// }
+
+// @include breakpoint("lg"){
+//   font-size: 26px;
+// }
+
+// @include breakpoint("xl"){
+//   font-size: 28px;
+// }
+
+
+  // @include breakpoint("xs"){
+  //   font-size: 13px;
+  // }
+
+
+  // @include breakpoint("sm"){
+  //   font-size: 15px;
+  // }
+
+  // @include breakpoint("md"){
+  //   font-size: 16px;
+  // }
+
+  // @include breakpoint("lg"){
+  //   font-size: 17px;
+  // }
+
+  // @include breakpoint("xl"){
+  //   font-size: 18px;
+  // }
+
+
+
+
+
+
+@function zip($lists...) {
+  $zipped-list: ();
+  $count: length(nth($lists, 1));
+  
+  @for $i from 1 through $count {
+    $zipped-item: ();
+    @each $list in $lists {
+      $zipped-item: append($zipped-item, nth($list, $i));
+    }
+    $zipped-list: append($zipped-list, $zipped-item);
+  }
+  
+  @return $zipped-list;
 }

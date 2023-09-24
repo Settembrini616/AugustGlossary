@@ -8,6 +8,7 @@ import TrackBarModal from './Custom Hooks/Forms/Track Bar/TrackBarModal';
 
 
 
+
 function App() {
 
   const [data, setData] = useState(null);
@@ -59,10 +60,7 @@ function App() {
         {!data ? 'loading...' : data }
       </div>
 
-    
-
-
-
+  
       <div className='super-main'>
         <div className='super-main-inner'>
         <Routing />

@@ -1,3 +1,4 @@
+@import '@fortawesome/fontawesome-svg-core/styles.css';
 @import url("https://fonts.googleapis.com/css2?family=Borel&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Borel&family=Handjet:wght@500&family=REM:ital,wght@1,200&display=swap");
 .main-container {
@@ -512,24 +513,73 @@
   left: 2%;
   flex: 10;
   color: rgb(6, 24, 83);
-  font-size: 35px;
 }
-.open-modal .main-track-open .inner-modal .top-wrapper .cross-close, .open-modal .main-track-close .inner-modal .top-wrapper .cross-close {
+@media (max-width: 575.98px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper h4, .open-modal .main-track-close .inner-modal .top-wrapper h4 {
+    font-size: 22px !important;
+  }
+}
+@media (min-width: 576px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper h4, .open-modal .main-track-close .inner-modal .top-wrapper h4 {
+    font-size: 24px !important;
+  }
+}
+@media (min-width: 768px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper h4, .open-modal .main-track-close .inner-modal .top-wrapper h4 {
+    font-size: 26px !important;
+  }
+}
+@media (min-width: 992px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper h4, .open-modal .main-track-close .inner-modal .top-wrapper h4 {
+    font-size: 28px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper h4, .open-modal .main-track-close .inner-modal .top-wrapper h4 {
+    font-size: 35px !important;
+  }
+}
+.open-modal .main-track-open .inner-modal .top-wrapper .crossy, .open-modal .main-track-close .inner-modal .top-wrapper .crossy {
   position: absolute;
-  font-size: 40px;
   font-weight: 600;
-  line-height: 8px;
-  padding: 5px 0px 14px;
+  line-height: 20px;
+  padding: 0px !important;
   right: 1%;
   display: flex;
   align-items: center;
   cursor: pointer;
+  right: 5px;
   top: 5px;
-  right: 8px;
 }
-.open-modal .main-track-open .inner-modal .top-wrapper .cross-close:hover, .open-modal .main-track-close .inner-modal .top-wrapper .cross-close:hover {
-  transform: rotate(180deg);
-  transition: transform 1s ease-in-out;
+.open-modal .main-track-open .inner-modal .top-wrapper .crossy:hover, .open-modal .main-track-close .inner-modal .top-wrapper .crossy:hover {
+  bottom: 1px;
+  transform: rotate(360deg);
+  transition: transform 1.2s ease-in-out;
+}
+@media (max-width: 575.98px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper .crossy, .open-modal .main-track-close .inner-modal .top-wrapper .crossy {
+    font-size: 18px !important;
+  }
+}
+@media (min-width: 576px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper .crossy, .open-modal .main-track-close .inner-modal .top-wrapper .crossy {
+    font-size: 20px !important;
+  }
+}
+@media (min-width: 768px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper .crossy, .open-modal .main-track-close .inner-modal .top-wrapper .crossy {
+    font-size: 22px !important;
+  }
+}
+@media (min-width: 992px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper .crossy, .open-modal .main-track-close .inner-modal .top-wrapper .crossy {
+    font-size: 24px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .open-modal .main-track-open .inner-modal .top-wrapper .crossy, .open-modal .main-track-close .inner-modal .top-wrapper .crossy {
+    font-size: 26px !important;
+  }
 }
 .open-modal .main-track-open .inner-modal aside:nth-of-type(1), .open-modal .main-track-close .inner-modal aside:nth-of-type(1) {
   grid-row: 2;

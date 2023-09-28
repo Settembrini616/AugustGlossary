@@ -1,6 +1,10 @@
 @import '@fortawesome/fontawesome-svg-core/styles.css';
 @import url("https://fonts.googleapis.com/css2?family=Borel&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Borel&family=Handjet:wght@500&family=REM:ital,wght@1,200&display=swap");
+.close-modal {
+  display: none;
+}
+
 .main-container {
   margin: 0 auto auto;
   height: 40em;
@@ -62,6 +66,118 @@
   grid-row: 3;
   grid-column: 7/span 1;
   width: 180px !important;
+}
+
+.modal-open-submit {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  box-sizing: border-box;
+}
+.modal-open-submit .blur-background-submit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 11, 11, 0.78);
+  z-index: 20;
+}
+.modal-open-submit .submit-inner-open,
+.modal-open-submit .submit-inner-close {
+  width: 65%;
+  height: 65%;
+  margin-bottom: 0px;
+  background-color: white;
+  position: relative;
+  z-index: 60;
+}
+.modal-open-submit .submit-inner-open .submit-main-inner-modal,
+.modal-open-submit .submit-inner-close .submit-main-inner-modal {
+  margin: 1em;
+}
+.modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy,
+.modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy {
+  position: absolute;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 0px !important;
+  right: 1%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  right: 5px;
+  top: 5px;
+}
+.modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy:hover,
+.modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy:hover {
+  bottom: 1px;
+  transform: rotate(360deg);
+  transition: transform 1.2s ease-in-out;
+}
+@media (max-width: 575.98px) {
+  .modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy,
+  .modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy {
+    font-size: 18px !important;
+  }
+}
+@media (min-width: 576px) {
+  .modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy,
+  .modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy {
+    font-size: 20px !important;
+  }
+}
+@media (min-width: 768px) {
+  .modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy,
+  .modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy {
+    font-size: 22px !important;
+  }
+}
+@media (min-width: 992px) {
+  .modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy,
+  .modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy {
+    font-size: 24px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-open-submit .submit-inner-open .submit-main-inner-modal .crossy,
+  .modal-open-submit .submit-inner-close .submit-main-inner-modal .crossy {
+    font-size: 26px !important;
+  }
+}
+
+.submit-inner-open {
+  animation: pop-up 300ms linear;
+  animation-fill-mode: backwards;
+}
+@keyframes pop-up {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.submit-inner-close {
+  animation: pop-upnone 300ms linear;
+  animation-fill-mode: backwards;
+}
+@keyframes pop-upnone {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0.5;
+  }
 }
 
 .form_wrap_inner {
@@ -505,7 +621,6 @@
   justify-content: flex-end;
   align-items: center;
   margin: 0;
-  border-bottom: 2px solid black;
 }
 .open-modal .main-track-open .inner-modal .top-wrapper h4, .open-modal .main-track-close .inner-modal .top-wrapper h4 {
   position: relative;
@@ -585,12 +700,137 @@
   grid-row: 2;
   grid-column: 1/span 2;
 }
+.open-modal .main-track-open .inner-modal aside:nth-of-type(1) * + *, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) * + * {
+  margin-top: 1em;
+}
+.open-modal .main-track-open .inner-modal aside:nth-of-type(1) div, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div {
+  margin: 1em;
+}
+@media (max-width: 575.98px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div h6 {
+    font-size: 14px !important;
+  }
+}
+@media (min-width: 576px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div h6 {
+    font-size: 15px !important;
+  }
+}
+@media (min-width: 768px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div h6 {
+    font-size: 16px !important;
+  }
+}
+@media (min-width: 992px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div h6 {
+    font-size: 17px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div h6 {
+    font-size: 18px !important;
+  }
+}
+@media (max-width: 575.98px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div p, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div p {
+    font-size: 11px !important;
+  }
+}
+@media (min-width: 576px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div p, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div p {
+    font-size: 13px !important;
+  }
+}
+@media (min-width: 768px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div p, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div p {
+    font-size: 16px !important;
+  }
+}
+@media (min-width: 992px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div p, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div p {
+    font-size: 18px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div p, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div p {
+    font-size: 19px !important;
+  }
+}
+.open-modal .main-track-open .inner-modal aside:nth-of-type(1) div .daydescr, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div .daydescr {
+  height: 200px !important;
+  overflow-y: auto;
+  border: 2px solid red;
+}
+@media (max-width: 575.98px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div .daydescr, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div .daydescr {
+    width: 150px;
+  }
+}
+@media (min-width: 576px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div .daydescr, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div .daydescr {
+    width: 200px;
+  }
+}
+@media (min-width: 768px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div .daydescr, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div .daydescr {
+    width: 300px;
+  }
+}
+@media (min-width: 992px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div .daydescr, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div .daydescr {
+    width: 350px;
+  }
+}
+@media (min-width: 1200px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(1) div .daydescr, .open-modal .main-track-close .inner-modal aside:nth-of-type(1) div .daydescr {
+    width: 400px;
+  }
+}
 .open-modal .main-track-open .inner-modal aside:nth-of-type(2), .open-modal .main-track-close .inner-modal aside:nth-of-type(2) {
   grid-row: 2;
   grid-column: 3;
-  border-left: 2px solid black;
+  overflow: scroll;
+  overflow-x: hidden !important;
+  direction: rtl;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 }
-
+.open-modal .main-track-open .inner-modal aside:nth-of-type(2) div, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div {
+  direction: ltr;
+  width: 90%;
+}
+.open-modal .main-track-open .inner-modal aside:nth-of-type(2) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div h6 {
+  text-align: start;
+  position: relative;
+  left: 3%;
+}
+@media (max-width: 575.98px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(2) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div h6 {
+    font-size: 14px !important;
+  }
+}
+@media (min-width: 576px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(2) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div h6 {
+    font-size: 15px !important;
+  }
+}
+@media (min-width: 768px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(2) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div h6 {
+    font-size: 16px !important;
+  }
+}
+@media (min-width: 992px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(2) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div h6 {
+    font-size: 17px !important;
+  }
+}
+@media (min-width: 1200px) {
+  .open-modal .main-track-open .inner-modal aside:nth-of-type(2) div h6, .open-modal .main-track-close .inner-modal aside:nth-of-type(2) div h6 {
+    font-size: 18px !important;
+  }
+}
 .main-track-open {
   animation: pop-up 300ms linear;
   animation-fill-mode: backwards;
@@ -619,10 +859,6 @@
     transform: scale(0.5);
     opacity: 0.5;
   }
-}
-
-.close-modal {
-  display: none;
 }
 
 .footer {

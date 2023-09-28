@@ -1,0 +1,41 @@
+.modal-open-submit{
+    @include modalOuterStyle();
+
+
+    .blur-background-submit{
+        @include modalBlur();
+    }
+
+    .submit-inner-open, 
+    .submit-inner-close{
+
+        @include modalInnerStyle();
+
+
+
+
+    .submit-main-inner-modal{
+        margin: 1em;
+
+        .crossy{
+
+            @include crossClose();
+            right: 5px;
+            top: 5px;
+            @include crossSize();
+        }
+
+
+
+    }
+
+    }
+}
+
+.submit-inner-open{
+    @include appearAnimationPop();
+}
+
+.submit-inner-close{
+    @include appearAnimationPopRemove();
+}

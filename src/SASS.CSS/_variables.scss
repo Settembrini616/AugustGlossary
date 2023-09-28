@@ -1,7 +1,43 @@
 $frontPageColor:rgb(6, 24, 83);
 $footerColor:white;
 
+.close-modal{
 
+  display: none;
+}
+
+
+@mixin modalOuterStyle(){
+  position: fixed;
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 20;
+box-sizing: border-box;
+}
+
+
+@mixin modalBlur(){
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 11, 11, 0.78);
+  z-index: 20;
+}
+
+@mixin modalInnerStyle(){
+  width: 65%;
+  height: 65%;
+  margin-bottom: 0px;
+  background-color: white;
+  position: relative;
+  z-index: 60;
+
+}
 
 
 @mixin frontPageFont($fontSize, $lineHeight){
@@ -85,8 +121,8 @@ $breakpoints: (
 );
 
 @mixin breakpoint($name) {
+  
   $breakpoint-value: map-get($breakpoints, $name);
-
   @if $breakpoint-value {
     @media (#{$breakpoint-value}) {
       @content;
@@ -119,77 +155,17 @@ $breakpoints: (
   @include text-sizes(18px, 20px, 22px, 24px, 26px)
 }
 
-
 @mixin modalMainHeading(){
   @include text-sizes(22px, 24px, 26px, 28px, 35px);
 }
 
 @mixin modalRegularHeading(){
-  @include text-sizes(18px, 20px, 22px, 24px, 26px);
+  @include text-sizes(14px, 15px, 16px, 17px, 18px);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// @include breakpoint("sx"){
-//   font-size: 20px;
-// }
-
-// @include breakpoint("sm"){
-//   font-size: 22px;
-// }
-
-// @include breakpoint("md"){
-//   font-size: 24px;
-// }
-
-// @include breakpoint("lg"){
-//   font-size: 26px;
-// }
-
-// @include breakpoint("xl"){
-//   font-size: 28px;
-// }
-
-
-  // @include breakpoint("xs"){
-  //   font-size: 13px;
-  // }
-
-
-  // @include breakpoint("sm"){
-  //   font-size: 15px;
-  // }
-
-  // @include breakpoint("md"){
-  //   font-size: 16px;
-  // }
-
-  // @include breakpoint("lg"){
-  //   font-size: 17px;
-  // }
-
-  // @include breakpoint("xl"){
-  //   font-size: 18px;
-  // }
-
+@mixin modalRegularText(){
+  @include text-sizes(11px, 13px, 16px, 18px, 19px);
+}
 
 
 

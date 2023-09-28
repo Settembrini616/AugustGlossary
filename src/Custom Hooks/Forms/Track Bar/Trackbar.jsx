@@ -48,14 +48,24 @@ const Trackbar = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
 
-  const {trackWindowState, setTrackWindowState } = useContext(AppMainContext);
+  const {trackHistoryState, setTrackHistoryState,
+        trackMainSubmitState, setTrackMainSubmitState} 
+        = useContext(AppMainContext);
 
 
   const handleHistoryOpen = (e) => {
    if(e) e.preventDefault();
-    setTrackWindowState(true); // Это изменит состояние trackWindowState на true, открывая модальное окно
+   setTrackHistoryState(true); 
+
   }
 
+
+  const handleSubmitOpen = (e) => {
+    if(e) e.preventDefault();
+    setTrackMainSubmitState(true);
+  }
+
+  
   const year = currentDate.getFullYear();
   const month = String(currentDate.getMonth() + 1).padStart(2, '0');
   const day = String(currentDate.getDate()).padStart(2, '0');
@@ -125,7 +135,8 @@ const Trackbar = () => {
         <div className='submit-lookup'>
 
           <button className='btn'
-          type='submit'>Submit</button>
+                  onClick={handleSubmitOpen}
+           >Submit</button>
 
           <button className='btn'
                   onClick={handleHistoryOpen} >
@@ -144,7 +155,7 @@ const Trackbar = () => {
       </div>
 
     </div>
-  );
-}
+  );}
+
 
 export default Trackbar;

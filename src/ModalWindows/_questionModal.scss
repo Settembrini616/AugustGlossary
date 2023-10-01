@@ -1,0 +1,40 @@
+.modal-open-question{
+    @include modalOuterStyle();
+
+
+    .blur-background-question{
+        @include modalBlur();
+    }
+
+
+    .question-inner-open,
+    .question-inner-close{
+
+    @include modalInnerStyle();
+
+
+.question-main-inner-modal{
+    margin: 1em;
+
+    .crossy{
+        @include crossClose();
+        right: 5px;
+        top: 5px;
+        @include crossSize();
+    }
+}
+
+
+
+
+
+    }
+}
+
+.question-inner-open{
+    @include appearAnimationPop();
+}
+
+.question-inner-close{
+    @include appearAnimationPopRemove();
+}

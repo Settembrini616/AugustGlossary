@@ -5,11 +5,56 @@ import { useContext } from 'react';
 import { Cross } from '../FontAwesome/FontAwesome';
 import { useClose } from '../Custom Hooks/CustomHooks';
 
+
+const mainSubmitFormatDate = (date) =>{
+
+
+    function suffix(day){
+        if(day >= 11 && day <= 13){
+            return day +'th'
+        }
+
+        switch(day % 10){
+            case 1:
+                return day +'st';
+            case 2:
+                return day +'nd';
+            case 3:
+                return day +'rd';
+            case 4:
+                return day +'th';
+            default:
+                return day +'th';
+        }
+
+    }
+
+
+    const days = ['Sunday', 'Monday', 'Tuesday',
+     'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+    const months = ['January', 'February', 'March', 'April', 
+    'May', 'June', 'July', 'August', 'September',
+     'October', 'November', 'December'];
+
+     const dayName = days[date.getDay()];
+     const monthName = months[date.getMonth()];
+     const day = date.getDate();
+     const year = date.getFullYear();
+
+     return `${dayName}, ${monthName} ${suffix(day)} of ${year}`
+}
+
+
+
 const TrackSubmitModal = () => {
 
 
-    const { trackMainSubmitState, setTrackMainSubmitState} = 
-    useContext(AppMainContext);
+    const { trackMainSubmitState, setTrackMainSubmitState,
+            currentDate, setCurrentDate,
+            ACTIONS, initialState, 
+            stateTrackbar, dispatchTrackbar } = 
+            useContext(AppMainContext);
 
     const [isClosingSubmit, closeTheWindowSubmit] = 
     useClose(trackMainSubmitState, setTrackMainSubmitState);
@@ -32,10 +77,28 @@ const TrackSubmitModal = () => {
             className='crossy'
             onClick={closeTheWindowSubmit}/> 
 
-                <h4>Ruslan Budkobrad</h4>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laboriosam, in vero amet eum aliquid beatae earum sit dicta placeat, iure laudantium officiis dolore numquam dolores tempora dignissimos blanditiis doloremque exercitationem?
-                Officiis accusantium dicta vitae illum error consectetur modi voluptatum esse debitis commodi aut harum praesentium nesciunt maxime, repellat distinctio dolores iste quos repudiandae, atque beatae rem cumque? Nemo, incidunt. Dolore?
-                Atque, incidunt? Consectetur, ex quam! Natus cum consequuntur voluptatem optio vero modi dolores ab, doloremque, quo, excepturi nihil! Nulla tempore accusantium error eveniet mollitia quibusdam fugit nostrum deserunt qui magnam.</p>
+                <h4>The Daily Report</h4>
+ 
+                <div className='submit-top-part'>
+
+                <form action="">
+                <p>Your estimated score for {mainSubmitFormatDate(currentDate)} is:</p>
+                <div>{stateTrackbar.inputValue}% out of 100%</div>
+                <p>Describe what you did today: </p>
+                <textarea className='submit-textarea'>
+                </textarea>
+                </form>
+                </div>
+                
+                <div className="submit-bottom-buttons">
+                    <button className='btn' type='submit'>
+                        Ok
+                    </button>
+                    <button className='btn'>
+                        Cancel
+                    </button>
+                </div>
+            
         </section>
           
                 

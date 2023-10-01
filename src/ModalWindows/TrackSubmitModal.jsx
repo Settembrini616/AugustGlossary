@@ -1,6 +1,6 @@
 import React from 'react';
 import AppMainContext from '../Custom Hooks/AppMainContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import { Cross } from '../FontAwesome/FontAwesome';
 import { useClose } from '../Custom Hooks/CustomHooks';
@@ -59,6 +59,52 @@ const TrackSubmitModal = () => {
     const [isClosingSubmit, closeTheWindowSubmit] = 
     useClose(trackMainSubmitState, setTrackMainSubmitState);
 
+    const [mainDescription, mainSetDescription] = useState('');
+
+
+    const sendReportToTheServer = async (date, percentage, description) => {
+        
+        try {
+            const response = await fetch ('/api/reports', {
+
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+
+                body: JSON.stringify({date, percentage, description}),
+
+            });
+            if(response.ok){
+                console.log('The report has been saved succesfully');
+            }
+            else{
+                console.error('There was an error on the server side')
+            }
+        }
+
+        catch(error){
+            console.error('The error occured when sending data to the server', error);
+
+        }
+    }
+
+    const handleDescription = (e) =>{
+        if(e) e.preventDefault();
+        mainSetDescription(e.target.value);
+    }
+
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+        const date = currentDate;
+        const percentage = stateTrackbar.inputValue;
+        sendReportToTheServer(date, percentage, mainDescription);
+    }
+
+   
+
     return (
 
         <div className={trackMainSubmitState 
@@ -81,15 +127,18 @@ const TrackSubmitModal = () => {
  
                 <div className='submit-top-part'>
 
-                <form action="">
+                <form action=""  onSubmit={handleSubmit} >
                 <p>Your estimated score for {mainSubmitFormatDate(currentDate)} is:</p>
                 <div>{stateTrackbar.inputValue}% out of 100%</div>
                 <p>Describe what you did today: </p>
-                <textarea className='submit-textarea'>
+                <textarea 
+                className='submit-textarea'
+                 name='mainDescription'
+                 value={mainDescription}
+                 onChange={handleDescription}
+                 >
                 </textarea>
-                </form>
-                </div>
-                
+
                 <div className="submit-bottom-buttons">
                     <button className='btn' type='submit'>
                         Ok
@@ -98,6 +147,13 @@ const TrackSubmitModal = () => {
                         Cancel
                     </button>
                 </div>
+
+
+                
+                </form>
+                </div>
+                
+                
             
         </section>
           

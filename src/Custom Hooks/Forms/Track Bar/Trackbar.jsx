@@ -7,9 +7,9 @@ import AppMainContext from '../../AppMainContext';
 
 const Trackbar = () => {
 
-  const {trackHistoryState, setTrackHistoryState, //modal history
+  const { setTrackHistoryState, //modal history
 
-        trackMainSubmitState, setTrackMainSubmitState, //modal submit
+        setTrackMainSubmitState, //modal submit
 
         currentDate, setCurrentDate, //date
         
@@ -17,7 +17,7 @@ const Trackbar = () => {
 
         stateTrackbar, dispatchTrackbar, //reducer trackbar,
 
-        questionModal, setQuestionModal //question Modal
+        setQuestionModal //question Modal
       
       }  = useContext(AppMainContext);
 

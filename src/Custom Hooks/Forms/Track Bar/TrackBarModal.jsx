@@ -2,19 +2,37 @@ import React, { useEffect, useContext, useState } from 'react';
 import AppMainContext from '../../AppMainContext';
 import { Cross } from '../../../FontAwesome/FontAwesome';
 import { useClose } from '../../CustomHooks';
-import {v4 as uuidv4} from 'uuid'; 
 
+
+
+
+const HistoryListDate = (date) => {
+
+    const dateObject = new Date(date);   
+    const months = ['January', 'February', 'March', 'April', 
+    'May', 'June', 'July', 'August', 'September',
+     'October', 'November', 'December'];
+
+    const monthZeroEleven = dateObject.getMonth();
+    const monthTrue = months[monthZeroEleven].substring(0,3);
+    const year = dateObject.getFullYear();
+    const todayDate = dateObject.getDate();
+
+    return `${monthTrue} ${todayDate}, ${year}`
+}
 
 
 const TrackBarModal = ({UsernameLogin}) => {
 
- const {trackHistoryState, setTrackHistoryState } = 
+ const {trackHistoryState, setTrackHistoryState,
+         currentDate } = 
  useContext(AppMainContext);
 
  const [isClosingHistory, closeTheWindow] = 
  useClose(trackHistoryState, setTrackHistoryState );
 
  const [serverData, setServerData] = useState([]);
+
 
 
  useEffect(()=>{
@@ -24,7 +42,26 @@ const TrackBarModal = ({UsernameLogin}) => {
     .catch((error)=> console.error('There was an error when trying to fetch data', error))
  }, []);
 
+ const deleteReport = async (id) => {
+    try {
+        const response = await fetch(`http://localhost:3001/api/reports/${id}`,
+        {
+            method: 'DELETE',
+        }
+        );
 
+        if(response.ok){
+            setServerData(prev => prev.filter(
+                (item) => item.id !== id));
+            console.log('A report was deleted');
+        }else{
+            console.log('Error when deleting a report')
+        }
+
+    }catch(error){
+        console.error('An error sending delete request occured', error);
+    }
+ }
 
     return (
 
@@ -62,10 +99,15 @@ const TrackBarModal = ({UsernameLogin}) => {
                     <aside> 
                         <div >
                             <h6>Look it up:</h6>
-                            <ul>
+                            <ul style={{
+                            
+                            }}>
                                 {serverData.map((item,index)=>(
-                                    <li key={uuidv4()}>
-                                        `${item.date}: ${item.percentage}`
+                                    <li key={item.id}>
+                                         {item.id} {HistoryListDate(item.date)}: {item.percentage}% 
+                                         <Cross className='cross-sm'
+                                         onClick={ ()=> deleteReport(item.id)}
+                                         />
                                     </li>
                                 ))}
                                 

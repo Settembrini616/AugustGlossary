@@ -1,9 +1,9 @@
-import React from 'react';
-import AppMainContext from '../Custom Hooks/AppMainContext';
-import { useContext, useState } from 'react';
 
+import React, { useContext, useState  } from 'react';
+import AppMainContext from '../Custom Hooks/AppMainContext';
 import { Cross } from '../FontAwesome/FontAwesome';
 import { useClose } from '../Custom Hooks/CustomHooks';
+
 
 
 const mainSubmitFormatDate = (date) =>{
@@ -21,12 +21,9 @@ const mainSubmitFormatDate = (date) =>{
                 return day +'nd';
             case 3:
                 return day +'rd';
-            case 4:
-                return day +'th';
             default:
                 return day +'th';
         }
-
     }
 
 
@@ -51,9 +48,8 @@ const TrackSubmitModal = () => {
 
 
     const { trackMainSubmitState, setTrackMainSubmitState,
-            currentDate, setCurrentDate,
-            ACTIONS, initialState, 
-            stateTrackbar, dispatchTrackbar } = 
+            currentDate, 
+            stateTrackbar } = 
             useContext(AppMainContext);
 
     const [isClosingSubmit, closeTheWindowSubmit] = 
@@ -62,8 +58,23 @@ const TrackSubmitModal = () => {
     const [mainDescription, mainSetDescription] = useState('');
 
 
-    const sendReportToTheServer = async (date, percentage, description) => {
-        
+    const [idMain, setIdMain] = useState(()=>{
+
+        return parseInt(localStorage.getItem('idMain')) || 1;
+    });
+
+    const incrementId = () =>{
+
+        let newId = idMain + 1;
+        setIdMain(newId);
+        localStorage.setItem('idMain', newId.toString());
+        return newId;
+    }
+
+
+
+    const sendReportToTheServer = async (date, percentage, description, id) => {
+
         try {
             const response = await fetch ('/api/reports', {
 
@@ -72,11 +83,12 @@ const TrackSubmitModal = () => {
                     'Content-Type': 'application/json',
                 },
 
-                body: JSON.stringify({date, percentage, description}),
+                body: JSON.stringify({date, percentage, description, id }),
 
             });
             if(response.ok){
-                console.log('The report has been saved succesfully');
+    
+                console.log(`The report has been saved succesfully`);
             }
             else{
                 console.error('There was an error on the server side')
@@ -90,20 +102,27 @@ const TrackSubmitModal = () => {
     }
 
     const handleDescription = (e) =>{
-        if(e) e.preventDefault();
         mainSetDescription(e.target.value);
     }
 
 
-    const handleSubmit = async (e) => {
+    const handleSubmit =  async (e) => {
+           if (e) e.preventDefault();
+           closeTheWindowSubmit();
+            let id = incrementId();
+            const date = currentDate;
+            const percentage = stateTrackbar.inputValue;
+            sendReportToTheServer(date, percentage, mainDescription, id);
+            mainSetDescription('');
+            console.log(id);
+            
 
-        e.preventDefault();
-        const date = currentDate;
-        const percentage = stateTrackbar.inputValue;
-        sendReportToTheServer(date, percentage, mainDescription);
     }
 
-   
+    const clearing = () =>{
+        localStorage.removeItem('idMain')
+        console.log(idMain)
+    }
 
     return (
 
@@ -127,7 +146,7 @@ const TrackSubmitModal = () => {
  
                 <div className='submit-top-part'>
 
-                <form action=""  onSubmit={handleSubmit} >
+                <form  onSubmit={handleSubmit} >
                 <p>Your estimated score for {mainSubmitFormatDate(currentDate)} is:</p>
                 <div>{stateTrackbar.inputValue}% out of 100%</div>
                 <p>Describe what you did today: </p>
@@ -143,15 +162,20 @@ const TrackSubmitModal = () => {
                     <button className='btn' type='submit'>
                         Ok
                     </button>
-                    <button className='btn'>
+
+                </div>
+                </form>
+
+                <button className='btn'
+                onClick={closeTheWindowSubmit}>
                         Cancel
                     </button>
+
+                <button onClick={clearing}>
+                    Clear
+                </button>
                 </div>
 
-
-                
-                </form>
-                </div>
                 
                 
             

@@ -1,8 +1,12 @@
 import React from 'react';
-import { useState, useReducer } from 'react';
+import { useState, useReducer, useEffect } from 'react';
 
 
 const AppMainContext = React.createContext();
+
+
+
+
 
 export const AppMainProvider = ({children}) =>{
     const [trackHistoryState, setTrackHistoryState] = useState(false);
@@ -13,7 +17,31 @@ export const AppMainProvider = ({children}) =>{
     
     const [questionModal, setQuestionModal] = useState(false);
 
+    const [serverDate, setServerDate] = useState();
 
+
+    const fetchServerDate = async () =>{
+
+      try {
+        const response = await fetch('/api/current-date');
+        const data = await response.json();
+        setServerDate(new Date(data.dateNow));
+
+      } catch (error) {
+        console.error('Ошибка при получении даты с сервера', error);
+      }
+    }
+
+    useEffect(() => {
+      
+      fetchServerDate();
+    }, []);
+
+   
+
+
+
+ 
     const ACTIONS = {
         PLUS: 'PLUS',
         MINUS:'MINUS',
@@ -71,7 +99,10 @@ export const AppMainProvider = ({children}) =>{
              stateTrackbar, dispatchTrackbar, //редьюсер тракбара
 
 
-            questionModal, setQuestionModal
+            questionModal, setQuestionModal,
+
+
+            serverDate, setServerDate //серверная дата
 
         }}>
          {children}

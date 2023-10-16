@@ -1,13 +1,13 @@
 
-import React, { useContext, useState  } from 'react';
+import React, { useContext, useState, useEffect  } from 'react';
 import AppMainContext from '../Custom Hooks/AppMainContext';
 import { Cross } from '../FontAwesome/FontAwesome';
 import { useClose } from '../Custom Hooks/CustomHooks';
+import axios, { Axios } from 'axios';
 
 
 
 const mainSubmitFormatDate = (date) =>{
-
 
     function suffix(day){
         if(day >= 11 && day <= 13){
@@ -25,7 +25,6 @@ const mainSubmitFormatDate = (date) =>{
                 return day +'th';
         }
     }
-
 
     const days = ['Sunday', 'Monday', 'Tuesday',
      'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -58,41 +57,18 @@ const TrackSubmitModal = () => {
     const [mainDescription, mainSetDescription] = useState('');
 
 
-    const [idMain, setIdMain] = useState(()=>{
-
-        return parseInt(localStorage.getItem('idMain')) || 1;
-    });
-
-    const incrementId = () =>{
-
-        let newId = idMain + 1;
-        setIdMain(newId);
-        localStorage.setItem('idMain', newId.toString());
-        return newId;
-    }
-
-
-
-    const sendReportToTheServer = async (date, percentage, description, id) => {
+    const sendReportToTheServer = async (date, percentage, description) => {
 
         try {
-            const response = await fetch ('/api/reports', {
 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            const response = await axios.post('/api/reports',{date, percentage, description});
 
-                body: JSON.stringify({date, percentage, description, id }),
+           if(response.status === 201){
+            console.log('The report has been saved')
+           }else{
 
-            });
-            if(response.ok){
-    
-                console.log(`The report has been saved succesfully`);
-            }
-            else{
-                console.error('There was an error on the server side')
-            }
+            console.error('There was an error on the server side')
+           }
         }
 
         catch(error){
@@ -109,20 +85,13 @@ const TrackSubmitModal = () => {
     const handleSubmit =  async (e) => {
            if (e) e.preventDefault();
            closeTheWindowSubmit();
-            let id = incrementId();
             const date = currentDate;
             const percentage = stateTrackbar.inputValue;
-            sendReportToTheServer(date, percentage, mainDescription, id);
+            sendReportToTheServer(date, percentage, mainDescription);
             mainSetDescription('');
-            console.log(id);
-            
-
     }
 
-    const clearing = () =>{
-        localStorage.removeItem('idMain')
-        console.log(idMain)
-    }
+
 
     return (
 
@@ -170,10 +139,6 @@ const TrackSubmitModal = () => {
                 onClick={closeTheWindowSubmit}>
                         Cancel
                     </button>
-
-                <button onClick={clearing}>
-                    Clear
-                </button>
                 </div>
 
                 

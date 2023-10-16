@@ -33,6 +33,8 @@ const TrackBarModal = ({UsernameLogin}) => {
 
  const [serverData, setServerData] = useState([]);
 
+ const [selectedDescription, setSelectedDescription] = useState('');
+
 
 
  useEffect(()=>{
@@ -53,6 +55,8 @@ const TrackBarModal = ({UsernameLogin}) => {
         if(response.ok){
             setServerData(prev => prev.filter(
                 (item) => item.id !== id));
+
+            setSelectedDescription('');
             console.log('A report was deleted');
         }else{
             console.log('Error when deleting a report')
@@ -91,7 +95,7 @@ const TrackBarModal = ({UsernameLogin}) => {
                                 This is your latest study description:
                             </p>
                             <p className='daydescr'>
-                                Lorem ipsum dolor 
+                                {selectedDescription}
                             </p>
                         </div>
                        
@@ -99,14 +103,16 @@ const TrackBarModal = ({UsernameLogin}) => {
                     <aside> 
                         <div >
                             <h6>Look it up:</h6>
-                            <ul style={{
-                            
-                            }}>
+                            <ul>
                                 {serverData.map((item,index)=>(
-                                    <li key={item.id}>
-                                         {item.id} {HistoryListDate(item.date)}: {item.percentage}% 
+                                    <li key={item.id}
+                                         onClick={()=> setSelectedDescription(item.description)}>
+                                         {HistoryListDate(item.date)}: {item.percentage}% 
                                          <Cross className='cross-sm'
-                                         onClick={ ()=> deleteReport(item.id)}
+                                         onClick={(e)=> {
+                                            e.stopPropagation();
+                                            deleteReport(item.id);
+                                         }}
                                          />
                                     </li>
                                 ))}
